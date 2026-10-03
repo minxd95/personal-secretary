@@ -1,0 +1,36 @@
+# Dependencies and generated output in each app
+node_modules/
+dist/
+coverage/
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+.node-path
+.ssh/
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa*
+id_ed25519*
+auth.json
+.npmrc
+
+# Runtime data, logs and backups
+data/
+logs/
+backups/
+*.sqlite*
+*.db
+*.db-*
+*.lock
+*.log
+*.dump
+*.sql
+*.tar
+*.tar.gz
+*.tgz
+*.zip
+.DS_Store

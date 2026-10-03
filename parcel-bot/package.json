@@ -1,0 +1,27 @@
+{
+  "name": "parcel-bot",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "start": "node --env-file-if-exists=.env dist/src/main.js",
+    "dev": "npm run build && node --env-file-if-exists=.env dist/src/main.js",
+    "test": "npm run build && node --test dist/test/*.test.js",
+    "check": "tsc -p tsconfig.json --noEmit",
+    "setup": "node scripts/setup.mjs",
+    "pm2:start": "npm run build && pm2 start ecosystem.config.cjs --only parcel-bot",
+    "pm2:restart": "npm run build && pm2 restart ecosystem.config.cjs --only parcel-bot --update-env",
+    "pm2:stop": "pm2 stop parcel-bot",
+    "pm2:logs": "pm2 logs parcel-bot --lines 100",
+    "smoke:cj": "npm run build && node dist/scripts/smoke-cj.js",
+    "verify:pm2": "npm run build && node scripts/verify-runtime.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0"
+  }
+}
